@@ -1,4 +1,4 @@
-var base_url = "http://greyboxerp.com/studentapp/";
+var base_url = "http://greyboxerp.com/sbsjapp/";
 
  var pictureSource;   // picture source
     var destinationType; // sets the format of returned value 
