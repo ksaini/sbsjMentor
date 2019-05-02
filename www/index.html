@@ -193,8 +193,17 @@ function setdata(data){
 		localStorage["mname"] = data["mname"];// Mentor Name
 		localStorage["mid"] = data["mid"];// Mentor Id
 		localStorage["cidlist"] = data["cid"];
+		//create a map of cid and mid to represent last replied message-box
+		//This map will be useful to hint if there are new messages for any class.
+		var cid_mid = [];
+		var c = data["cid"].split(",");
+		for(var i=0;i<c.length;i++){
+			cid_mid.push([c[i],0]);
+		}
+		localStorage["cid_mid"] = JSON.stringify(cid_mid);
+		
 		// Go to resolve CID page to give mentors a choice, if they are eligible to access more t han one classes
-		document.location='resolveCID.html?cid=' + data["cid"];	
+		document.location='resolveCID.html?login=1&cid=' + data["cid"];	
 		}
 	else
 		document.getElementById("footer").innerHTML = "Username or Password not correct.<br> Please try again.";
