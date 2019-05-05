@@ -124,7 +124,7 @@ var branch="";
                    
                     <div class="form-group last">
                         <div class="col-sm-offset-3 col-sm-9" align="center">
-                            <button type="button" onclick='verify()' class="btn btn-success btn-sm">
+                            <button type="button" onclick='verify()' id="btn-sign" class="btn btn-success btn-sm">
                                 Sign in</button>
                                  <button type="reset" onclick='reset()' class="btn btn-warning btn-sm">
                                 Reset</button><br><br>
@@ -156,6 +156,7 @@ if(branch.trim().length < 1)
 	document.getElementById("footer").innerHTML = "Select a Branch First.";
 }
 else{	
+    document.getElementById("btn-sign").disabled = true;	
 	var key = branch.toLowerCase();
 	localStorage["db"] = key;	
 	if(localStorage.getItem("sid")!=null && localStorage.getItem("sid").length > 0)
@@ -175,6 +176,7 @@ function verifyUser(u,p,k){
 		if (req.readyState == 4 && req.status == 200) {
 			try {
 				var dataArray=JSON.parse(req.responseText);
+				document.getElementById("btn-sign").disabled = false;	
 				setdata(dataArray);
 								
 			} catch (e) {

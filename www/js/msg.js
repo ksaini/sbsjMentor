@@ -476,7 +476,7 @@ function sendHW(sub,hwdesc,imguri){
 		if (req.readyState == 4 && req.status == 200) {
 			try {
 				//alert(req.responseText);
-				
+				document.getElementById("btn-send").disabled = false;	
 				location.reload();
 				
 								
