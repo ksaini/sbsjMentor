@@ -203,6 +203,7 @@ function setdata(data){
 			cid_mid.push([c[i],0]);
 		}
 		localStorage["cid_mid"] = JSON.stringify(cid_mid);
+		localStorage["sid"] =  data["id"];
 		
 		// Go to resolve CID page to give mentors a choice, if they are eligible to access more t han one classes
 		document.location='resolveCID.html?login=1&cid=' + data["cid"];	

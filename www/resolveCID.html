@@ -187,6 +187,17 @@ div.desc {
    <script type="text/javascript" src="js/index.js"></script>
    <script type="text/javascript" src="js/dataTbl.js"></script>
    <script>
+   
+    document.addEventListener("deviceready", onDeviceReady, false);
+   function onDeviceReady() {
+        // Register the event listener
+        document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+	function onBackKeyDown() {
+		// Do not do any thing when back button is pressed. Override back button behaive
+		//When a user presses back button deom dashboard it should not go to logged out page.
+    }
+   
    var cids = getParameterByName('cid');
    var firstlogin = getParameterByName('login');
    localStorage["cid_arr"] = "";
